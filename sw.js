@@ -4,8 +4,8 @@ var filesToCache = [
   '/index.html',
   '/css/style.css',
   '/js/main.js',
-  'images/artists/chaka-khan.jpg',
-  'images/artists/nate-smith.jpg',
+  '/images/artists/chaka-khan.jpg',
+  '/images/artists/nate-smith.jpg',
   '/mp3/chaka-khan-a-night-in-tunisia.mp3',
   '/mp3/Pages.mp3'
 ];
