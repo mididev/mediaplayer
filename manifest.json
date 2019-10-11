@@ -27,7 +27,8 @@
       "type": "image/png"
     }],
   "lang": "en-US",
-  "start_url": "/mediaplayer/index.html",
+  "start_url": "./",
+  "scope": ".",
   "display": "standalone",
   "background_color": "white",
   "theme_color": "white"
