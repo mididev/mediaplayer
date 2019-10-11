@@ -83,7 +83,7 @@
 
     function play(filename, start, end) {
         audioplayer.src = 'mp3/' + filename + (start !== undefined ? '#t=' + start + ',' + (end || 1000) : '');
-        //audioplayer.play();
+        audioplayer.play();
 
         var length = filename.indexOf('.mp3');
         var artist = '';
