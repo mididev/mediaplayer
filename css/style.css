@@ -27,14 +27,14 @@ html,
 
 .wrapper {
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
   justify-content: center;
   align-items: center;
   border: 1px solid black;
   border-radius: 1rem;
-  padding: 2rem;
   background-color: #FEFEFE;
   color: #071981;
+  padding: 0rem;
 }
 
 
@@ -44,12 +44,14 @@ html,
   background-size: cover;
   width: 270px;
   height: 200px;
-  margin-right: 4rem;
   border-radius: 15px;
+  margin: 2rem;
 }
 
 #artist-player {
   text-align: left;
+  margin: 2rem;
+  flex-shrink: 0;
 }
 
 .table {
@@ -69,8 +71,8 @@ audio {
 
 .linksections {
   display: flex;
-  flex-flow: row;
-  justify-content: space-evenly;
+  flex-flow: row wrap;
+  justify-content: space-between;
   margin-top: 3rem;
 }
 
@@ -78,6 +80,7 @@ audio {
   text-align: left;
   margin-left: 3rem;
   margin-right: 3rem;
+  flex-shrink: 0;
 }
 
 
