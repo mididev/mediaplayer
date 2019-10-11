@@ -6,7 +6,6 @@ var filesToCache = [
   '/mediaplayer/js/main.js',
   '/mediaplayer/images/artists/chaka-khan.jpg',
   '/mediaplayer/images/artists/nate-smith.jpg',
-  '/mediaplayer/mp3/chaka-khan-a-night-in-tunisia.mp3',
   '/mediaplayer/mp3/Pages.mp3'
 ];
 
