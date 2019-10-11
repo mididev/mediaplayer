@@ -44,11 +44,11 @@
 
 <h2>Chaka Khan</h2>
 
-<button style="color: green" onclick="play('chaka-khan-a-night-in-tunisia.mp3')">Night in Tunisia (complete)</button><br>
-<button style="color: green" onclick="play('chaka-khan-a-night-in-tunisia.mp3', 0, 18)">Night in Tunisia (0:00 - 0:18)</button><br>
-<button style="color: green" onclick="play('chaka-khan-a-night-in-tunisia.mp3', 100, 116)">Night in Tunisia Synth Solo (1:40 - 2:56)</button><br>
-<button style="color: green" onclick="play('chaka-khan-a-night-in-tunisia.mp3', 195, 213)">Night in Tunisia Shout Chorus (3:15 - 3:33)</button><br>
-<button style="color: green" onclick="play('chaka-khan-a-night-in-tunisia.mp3', 180)">Night in Tunisia (3:00 - end)</button><br>
+<button style="color: green" onclick="play('chaka.mp3')">Night in Tunisia (complete)</button><br>
+<button style="color: green" onclick="play('chaka.mp3', 0, 18)">Night in Tunisia (0:00 - 0:18)</button><br>
+<button style="color: green" onclick="play('chaka.mp3', 100, 116)">Night in Tunisia Synth Solo (1:40 - 2:56)</button><br>
+<button style="color: green" onclick="play('chaka.mp3', 195, 213)">Night in Tunisia Shout Chorus (3:15 - 3:33)</button><br>
+<button style="color: green" onclick="play('chaka.mp3', 180)">Night in Tunisia (3:00 - end)</button><br>
 
 <script>
     var audioplayer = document.getElementById('audio_player3');
@@ -75,8 +75,7 @@
         var title;
         var imagename = '';
 
-        if (name == 'chaka-khan-a-night-in-tunisia') {
-          name = "chaka";
+        if (name == 'chaka') {
           artist = "Chaka Khan";
           title = "A Night in Tunisia";
           imagename = 'chaka-khan.jpg';
