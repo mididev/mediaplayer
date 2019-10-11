@@ -1,4 +1,4 @@
-var cacheName = 'hello-pwa';
+var cacheName = 'mediaplayer1';
 var filesToCache = [
   '/mediaplayer/',
   '/mediaplayer/index.html',
