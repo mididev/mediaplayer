@@ -5,7 +5,9 @@ var filesToCache = [
   '/mediaplayer/css/style.css',
   '/mediaplayer/js/main.js',
   '/mediaplayer/images/artists/chaka-khan.jpg',
-  '/mediaplayer/images/artists/nate-smith.jpg'
+  '/mediaplayer/images/artists/nate-smith.jpg',
+  '/mediaplayer/mp3/chaka-khan-a-night-in-tunisia.mp3',
+  '/mediaplayer/mp3/Pages.mp3'
 ];
 
 /* Start the service worker and cache all of the app's content */
