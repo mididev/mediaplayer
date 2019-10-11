@@ -68,6 +68,8 @@
 
 <script>
     var audioplayer = document.getElementById('audio_player3');
+    var endTime = null;
+    audioplayer.addEventListener('timeupdate', onTimeUpdate, false);
 
     function pad(num, size) {
         return ('000000000' + num).substr(-size);
@@ -81,8 +83,31 @@
         return text;
     }
 
+    function onTimeUpdate()
+    {
+        if (endTime !== null && this.currentTime >= endTime)
+        {
+          this.pause();
+          endTime = null;
+        }
+    }
+
     function play(filename, start, end) {
-        audioplayer.src = 'mp3/' + filename + (start !== undefined ? '#t=' + start + ',' + (end || 1000) : '');
+
+/*         audioplayer.src = 'mp3/' + filename + (start !== undefined ? '#t=' + start + ',' + (end || 1000) : '');
+        audioplayer.play();
+        // Funktioniert unter Safari (zumindest auf Katharinas iPhone nicht)
+ */
+        if (audioplayer.src !== 'mp3/' + filename) {
+          audioplayer.src = 'mp3/' + filename;
+
+          if (start !== undefined)
+            audioplayer.currentTime = start;
+        } else {
+          audioplayer.currentTime = start !== undefined ? start : 0;
+        }
+
+        endTime = (end !== undefined) ? end : null;
         audioplayer.play();
 
         var length = filename.indexOf('.mp3');
