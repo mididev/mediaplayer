@@ -4,6 +4,7 @@ var filesToCache = [
   '/mediaplayer/index.html',
   '/mediaplayer/css/style.css',
   '/mediaplayer/js/main.js',
+  '/mediaplayer/images/artists/default.jpg',
   '/mediaplayer/images/artists/chaka-khan.jpg',
   '/mediaplayer/images/artists/nate-smith.jpg',
   '/mediaplayer/mp3/Pages.mp3',

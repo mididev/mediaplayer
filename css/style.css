@@ -1,5 +1,7 @@
 body {
   font-family: sans-serif;
+  background-color: #131313;
+  color: #FEFEFE;
 }
 
 /* Make content area fill the entire browser window */
@@ -19,63 +21,69 @@ html,
 }
 
 .title {
-  font-size: 3rem;
+  font-size: 2rem;
+  margin-bottom: 2.5rem;
 }
 
-.artists {
+.wrapper {
   display: flex;
-  flex-flow: row no-wrap;
+  flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
-  text-align: left;
-  margin: 0;
-}
-
-.info {
-  margin: 10px;
-}
-
-.grid {
-  display: flex;
-  flex-flow: row wrap;
-}
-
-.grid div {
-}
-
-.heading {
-  font-weight: bold;
-  width: 100px;
-  text-align: left;
-  margin-bottom: 10px;
-}
-
-#artist, #songtitle, #range {
-  width: 300px;
-  text-align: left;
+  border: 1px solid black;
+  border-radius: 1rem;
+  padding: 2rem;
+  background-color: #FEFEFE;
+  color: #071981;
 }
 
 
-.artist-image {
+#artist-image {
   background-color: grey;
+  background-image: url(../images/artists/default.jpg);
   background-size: cover;
-  width: 200px;
-  height: 150px;
-  margin: 20px;
+  width: 270px;
+  height: 200px;
+  margin-right: 4rem;
   border-radius: 15px;
 }
 
-.player-container {
+#artist-player {
   text-align: left;
-  width: 400px;
+}
+
+.table {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-row-gap: 10px;
+  grid-column-gap: 20px;
 }
 
 audio {
-  margin-top: 10px;
+  margin-top: 30px;
 }
 
-#songtitle {
+.heading {
+   font-weight: bold;
+}
 
+.linksections {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-evenly;
+  margin-top: 3rem;
+}
+
+.linksection {
+  text-align: left;
+  margin-left: 3rem;
+  margin-right: 3rem;
+}
+
+
+#songtitle {
+  font-size: 120%;
+  font-weight: bold;
 }
 
 button {
@@ -85,5 +93,10 @@ button {
   font-size: 16px;
   cursor: pointer;
   display: inline-block;
-  color: blue;
+
+  color: rgb(112, 203, 255);
+}
+
+.chaka {
+  color: rgb(143, 255, 193);
 }
