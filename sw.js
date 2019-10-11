@@ -1,9 +1,13 @@
 var cacheName = 'hello-pwa';
 var filesToCache = [
-  '/mediaplayer/',
-  '/mediaplayer/index.html',
-  '/mediaplayer/css/style.css',
-  '/mediaplayer/js/main.js'
+  '/',
+  '/index.html',
+  '/css/style.css',
+  '/js/main.js',
+  'images/chaka-khan.jpg',
+  'images/nate-smith.jpg',
+  '/mp3/chaka-khan-a-night-in-tunisia.mp3',
+  '/mp3/Pages.mp3'
 ];
 
 /* Start the service worker and cache all of the app's content */

@@ -21,3 +21,69 @@ html,
 .title {
   font-size: 3rem;
 }
+
+.artists {
+  display: flex;
+  flex-flow: row no-wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  margin: 0;
+}
+
+.info {
+  margin: 10px;
+}
+
+.grid {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.grid div {
+}
+
+.heading {
+  font-weight: bold;
+  width: 100px;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+#artist, #songtitle, #range {
+  width: 300px;
+  text-align: left;
+}
+
+
+.artist-image {
+  background-color: grey;
+  background-size: cover;
+  width: 200px;
+  height: 150px;
+  margin: 20px;
+  border-radius: 15px;
+}
+
+.player-container {
+  text-align: left;
+  width: 400px;
+}
+
+audio {
+  margin-top: 10px;
+}
+
+#songtitle {
+
+}
+
+button {
+  border: none;
+  background-color: inherit;
+  padding: 5px 0px;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
+  color: blue;
+}
