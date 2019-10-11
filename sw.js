@@ -1,13 +1,13 @@
 var cacheName = 'hello-pwa1';
 var filesToCache = [
-  '/',
-  '/index.html',
-  '/css/style.css',
-  '/js/main.js',
-  '/images/artists/chaka-khan.jpg',
-  '/images/artists/nate-smith.jpg',
-  '/mp3/chaka-khan-a-night-in-tunisia.mp3',
-  '/mp3/Pages.mp3'
+  '/mediaplayer/',
+  '/mediaplayer/index.html',
+  '/mediaplayer/css/style.css',
+  '/mediaplayer/js/main.js',
+  '/mediaplayer/images/artists/chaka-khan.jpg',
+  '/mediaplayer/images/artists/nate-smith.jpg',
+  '/mediaplayer/mp3/chaka-khan-a-night-in-tunisia.mp3',
+  '/mediaplayer/mp3/Pages.mp3'
 ];
 
 /* Start the service worker and cache all of the app's content */
