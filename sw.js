@@ -5,8 +5,7 @@ var filesToCache = [
   '/css/style.css',
   '/js/main.js',
   '/images/artists/chaka-khan.jpg',
-  '/images/artists/nate-smith.jpg',
-  '/mp3/Pages.mp3'
+  '/images/artists/nate-smith.jpg'
 ];
 
 /* Start the service worker and cache all of the app's content */
