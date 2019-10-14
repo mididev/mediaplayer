@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Artist Media Player (V1.1)</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="images/icon-152.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#131313"/>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Artist Media Player">
+  <meta name="msapplication-TileImage" content="images/icon-144.png">
+  <meta name="msapplication-TileColor" content="#FFFFFF">
+</head>
+<body class="fullscreen">
+  <div class="container">
+
+    <h1 class="title">Artist Media Player (can play)</h1>
+
+    <div class="wrapper">
+
+      <div id="artist-image">
+      </div>
+
+      <div id="artist-player">
+
+        <div class="table">
+          <span class="heading">K&uuml;nstler:</span> <span id="artist">(kein K&uuml;nstler ausgew&auml;hlt)</span>
+          <span class="heading">Titel:</span> <span id="songtitle"></span>
+          <span class="heading">Bereich:</span> <span id="range"></span>
+        </div>
+
+        <audio controls id="audio_player3"></audio>
+
+      </div>
+
+    </div>
+
+    <div class="linksections">
+      <div class="linksection">
+        <h2>Nate Smith</h2>
+
+        <button onclick="play('Pages.mp3')">Pages</button><br>
+        <button onclick="play('Pages.mp3', 0, 30)">Pages - Intro (0:00 - 0:30)</button><br>
+        <button onclick="play('Pages.mp3', 30, 53)">Pages - Verse 1 (0:30 - 0:53)</button><br>
+        <button onclick="play('Pages.mp3', 53, 80)">Pages - Verse 2 (0:53 - 1:20)</button><br>
+        <button onclick="play('Pages.mp3', 120, 190)">Pages - Solos (2:00 - 3:10)</button><br>
+      </div>
+
+      <div class="linksection">
+        <h2>Chaka Khan</h2>
+
+        <button class="chaka" onclick="play('chaka.mp3')">Night in Tunisia</button><br>
+        <button class="chaka" onclick="play('chaka.mp3', 0, 18)">Night in Tunisia (0:00 - 0:18)</button><br>
+        <button class="chaka" onclick="play('chaka.mp3', 100, 116)">Night in Tunisia Synth Solo (1:40 - 2:56)</button><br>
+        <button class="chaka" onclick="play('chaka.mp3', 195, 213)">Night in Tunisia Shout Chorus (3:15 - 3:33)</button><br>
+        <button class="chaka" onclick="play('chaka.mp3', 180)">Night in Tunisia (3:00 - end)</button><br>
+      </div>
+    </div>
+
+    <span id="error">no error<br></span>
+</div>
+
+
+  </div>
+  <script src="js/main.js"></script>
+
+<script>
+    var audioplayer = document.getElementById('audio_player3');
+    var startTime = null;
+    var endTime = null;
+    audioplayer.addEventListener('timeupdate', onTimeUpdate, false);
+    audioplayer.addEventListener('canplay', onCanPlay, false);
+    //audioplayer.addEventListener("seeked", function() { console.log('seeked'); audioplayer.play(); }, true);
+
+    function pad(num, size) {
+        return ('000000000' + num).substr(-size);
+    }
+
+    function formatTime(seconds) {
+        var min = parseInt(seconds / 60);
+        var sec_amount = seconds % 60;
+        var text = pad(min, 2) + ':' + pad(sec_amount, 2);
+
+        return text;
+    }
+
+    function onTimeUpdate()
+    {
+        if (endTime !== null && this.currentTime >= endTime)
+        {
+          this.pause();
+          endTime = null;
+        }
+    }
+
+    function onCanPlay()
+    {
+        console.log('can play');
+        text1('can play (currentTime = ' + audioplayer.currentTime + ')');
+
+        if (startTime !== null) {
+            audioplayer.currentTime = startTime;
+            text1('set currentTime to ' + startTime);
+            startTime = null;
+            text1('currentTime is: ' + audioplayer.currentTime);
+        }
+    }
+
+    function play(filename, start, end) {
+
+/*         audioplayer.src = 'mp3/' + filename + (start !== undefined ? '#t=' + start + ',' + (end || 1000) : '');
+        audioplayer.play();
+        // Funktioniert unter Safari (zumindest auf Katharinas iPhone nicht)
+ */
+        if (audioplayer.src !== 'mp3/' + filename) {
+          audioplayer.src = 'mp3/' + filename;
+
+            /*
+          if (start !== undefined)
+            startTime = start;
+          else
+            audioplayer.play();
+            */
+
+            startTime = start !== undefined ? start : 0;
+            text1('call play (with new source). start = ' + startTime);
+            audioplayer.play();
+        } else {
+          //audioplayer.currentTime = start !== undefined ? start : 0;
+          startTime = start !== undefined ? start : 0;
+          text1('call play (without new source). start = ' + startTime);
+          audioplayer.play();
+        }
+
+        // currentTime doesn't work on iOS:
+        // see this: https://stackoverflow.com/questions/8621511/setting-the-currenttime-of-an-audio-tag-not-working
+
+        endTime = (end !== undefined) ? end : null;
+
+        var length = filename.indexOf('.mp3');
+        var artist = '';
+        var name = filename.substr(0, length);
+        var title;
+        var imagename = '';
+
+        if (name == 'chaka') {
+          artist = "Chaka Khan";
+          title = "A Night in Tunisia";
+          imagename = 'chaka-khan.jpg';
+        }
+
+        if (name == 'Pages') {
+          artist = "Nate Smith";
+          title = "Pages";
+          imagename = 'nate-smith.jpg';
+        }
+
+        var range = '&nbsp;';
+
+        if (start !== undefined) {
+            range = 'von ' + formatTime(start) + ' bis ' + (end ? formatTime(end) : 'Ende');
+        }
+
+        document.getElementById('artist').innerText = artist;
+        document.getElementById('songtitle').innerText = title;
+        document.getElementById('range').innerHTML = range;
+        document.querySelector('#artist-image').style.backgroundImage = 'url(images/artists/' + imagename + ')';
+    }
+
+    function text1(str) {
+        var element = document.getElementById('error');
+
+        element.innerHTML += str + "<br>";
+    }
+</script>
+
+
+</body>
+</html>
